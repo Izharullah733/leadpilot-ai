@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+:root { --navy: #0b1830; --blue: #2563eb; }
+* { box-sizing: border-box; }
+html { overflow-x: clip; background: #f5f7fb; }
+body { margin: 0; overflow-x: clip; color: #172033; background: #f5f7fb; font-family: Arial, Helvetica, sans-serif; }
+button, input, select, textarea { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 3px solid #93c5fd; outline-offset: 2px;
+}
+.card { background: white; border: 1px solid #e7eaf0; border-radius: 16px; box-shadow: 0 1px 3px rgba(15, 23, 42, .04); }
+.label { display: block; color: #344054; font-size: 14px; font-weight: 600; margin-bottom: 7px; }
+.input { width: 100%; border: 1px solid #d8dde7; background: white; border-radius: 10px; padding: 10px 12px; color: #172033; transition: .15s; }
+.input:focus { border-color: #2563eb; box-shadow: 0 0 0 3px #dbeafe; outline: none; }
+.btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 0; border-radius: 10px; background: #2563eb; color: white; font-weight: 700; padding: 10px 16px; cursor: pointer; }
+.btn-primary:hover { background: #1d4ed8; }
+.btn-primary:disabled, .btn-secondary:disabled { cursor: not-allowed; opacity: .55; }
+.btn-secondary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 1px solid #d8dde7; border-radius: 10px; background: white; color: #344054; font-weight: 650; padding: 9px 14px; cursor: pointer; }
+.btn-secondary:hover { background: #f8fafc; }
+.skeleton { background: linear-gradient(90deg,#eef1f5 25%,#f8fafc 50%,#eef1f5 75%); background-size: 200% 100%; animation: pulse 1.4s infinite; }
+@keyframes pulse { to { background-position: -200% 0; } }
+@media (max-width: 767px) { .desktop-table { min-width: 850px; } }

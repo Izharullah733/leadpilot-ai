@@ -1,0 +1,47 @@
+{
+  "name": "leadpilot-ai",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "auth:prepare-local": "node scripts/prepare-local-auth-e2e.mjs",
+    "notifications:process-local": "node scripts/process-local-notifications.mjs",
+    "demo:seed:hosted": "node scripts/seed-hosted-demo.mjs",
+    "qa:e2e": "node scripts/prepare-stage3-e2e.mjs && node scripts/qa-e2e.mjs",
+    "qa:ai-unconfigured": "node scripts/qa-ai-unconfigured.mjs",
+    "qa:screenshots": "node scripts/capture-screenshots.mjs"
+  },
+  "dependencies": {
+    "@supabase/ssr": "^0.12.3",
+    "@supabase/supabase-js": "^2.110.8",
+    "lucide-react": "^0.468.0",
+    "next": "^15.1.6",
+    "nodemailer": "^9.0.3",
+    "openai": "^7.3.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.2.0",
+    "@tailwindcss/postcss": "^4.0.0",
+    "@types/node": "^22.10.0",
+    "@types/nodemailer": "^8.0.1",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "eslint": "^9.17.0",
+    "eslint-config-next": "^15.1.6",
+    "playwright-core": "^1.61.1",
+    "postgres": "^3.4.9",
+    "supabase": "^2.109.1",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.7.2"
+  },
+  "overrides": {
+    "brace-expansion": "5.0.8",
+    "postcss": "^8.5.10",
+    "sharp": "^0.35.0"
+  }
+}
