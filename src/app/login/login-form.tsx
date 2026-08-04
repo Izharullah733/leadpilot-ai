@@ -71,7 +71,7 @@ export function LoginForm({ destination, message }: LoginFormProps) {
         : undefined;
 
   return (
-    <main className="grid min-h-screen lg:grid-cols-2">
+    <main className="grid min-h-[100svh] bg-white lg:grid-cols-2">
       <section className="relative hidden overflow-hidden bg-[#0b1830] p-14 text-white lg:flex lg:flex-col lg:justify-between">
         <div className="absolute -right-24 top-20 size-80 rounded-full bg-blue-600/20 blur-3xl" />
         <div className="relative flex items-center gap-3">
@@ -106,22 +106,22 @@ export function LoginForm({ destination, message }: LoginFormProps) {
           © 2026 LeadPilot AI · Secure workspace
         </p>
       </section>
-      <section className="flex items-center justify-center bg-white px-5 py-12">
+      <section className="flex items-start justify-center bg-white px-5 pb-8 pt-7 sm:items-center sm:px-8 sm:py-12">
         <div className="w-full max-w-md">
-          <div className="mb-9 flex items-center gap-3 lg:hidden">
+          <div className="mb-10 flex items-center gap-3 lg:hidden">
             <span className="rounded-xl bg-blue-600 p-2 text-white"><Building2 /></span>
             <b className="text-xl">LeadPilot AI</b>
           </div>
-          <span className="grid size-12 place-items-center rounded-xl bg-blue-50 text-blue-600">
+          <span className="grid size-11 place-items-center rounded-xl bg-blue-50 text-blue-600 [&>svg]:size-5 sm:size-12 sm:[&>svg]:size-6">
             <ShieldCheck />
           </span>
-          <h2 className="mt-6 text-3xl font-extrabold tracking-tight text-slate-900">
+          <h2 className="mt-5 text-[2rem] font-extrabold leading-tight tracking-tight text-slate-900 sm:mt-6 sm:text-3xl">
             Welcome back
           </h2>
           <p className="mt-2 text-slate-500">
             Sign in with your company account.
           </p>
-          <form onSubmit={submit} noValidate className="mt-8 space-y-5">
+          <form onSubmit={submit} noValidate className="mt-6 space-y-4 sm:mt-8 sm:space-y-5">
             {statusMessage && (
               <div role="status" className="rounded-xl bg-emerald-50 px-4 py-3 text-sm font-semibold text-emerald-700">
                 {statusMessage}

@@ -67,15 +67,15 @@ export function AppShell({
       <div className="fixed inset-y-0 left-0 hidden md:block">{sidebar}</div>
       {open && <div className="fixed inset-0 z-50 md:hidden"><button aria-label="Close menu" className="absolute inset-0 bg-slate-950/50" onClick={() => setOpen(false)} /><div className="relative h-full w-64">{sidebar}<button aria-label="Close menu" className="absolute right-3 top-5 text-white" onClick={() => setOpen(false)}><X /></button></div></div>}
       <div className="min-w-0 md:pl-64">
-        <header className="sticky top-0 z-30 flex h-18 items-center gap-3 border-b border-slate-200 bg-white/95 px-4 backdrop-blur sm:px-6">
-          <button aria-label="Open menu" onClick={() => setOpen(true)} className="rounded-lg p-2 text-slate-600 hover:bg-slate-100 md:hidden"><Menu /></button>
+        <header className="sticky top-0 z-30 flex h-16 items-center gap-3 border-b border-slate-200 bg-white/95 px-3 backdrop-blur sm:h-18 sm:px-6">
+          <button aria-label="Open menu" onClick={() => setOpen(true)} className="rounded-lg p-2 text-slate-600 hover:bg-slate-100 md:hidden"><Menu className="size-5" /></button>
           <form className="relative hidden max-w-md flex-1 lg:block" onSubmit={event => { event.preventDefault(); const query=globalSearch.trim(); if(query) router.push(`/leads?search=${encodeURIComponent(query)}`); }}><Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-slate-400" /><input aria-label="Global lead search" value={globalSearch} onChange={event=>setGlobalSearch(event.target.value)} placeholder="Search leads..." className="input bg-slate-50 pl-9" /></form>
           <div className="ml-auto flex items-center gap-2">
             <NotificationMenu initial={notificationCenter} />
             <div className="ml-1 flex items-center gap-2 border-l border-slate-200 pl-3"><span className="grid size-9 place-items-center rounded-full bg-blue-100 text-sm font-extrabold text-blue-700">{initials}</span><span className="hidden text-left sm:block"><b className="block text-sm text-slate-800">{auth.fullName}</b><small className="text-slate-500">{roleLabels[auth.role]}</small></span><ChevronDown className="hidden size-4 text-slate-400 sm:block" /></div>
           </div>
         </header>
-        <main className="min-w-0 max-w-full overflow-x-hidden p-4 sm:p-6 lg:p-8"><AuthProvider value={auth}>{children}</AuthProvider></main>
+        <main className="min-w-0 max-w-full overflow-x-hidden px-3 py-4 sm:p-6 lg:p-8"><AuthProvider value={auth}>{children}</AuthProvider></main>
       </div>
     </div>
   );

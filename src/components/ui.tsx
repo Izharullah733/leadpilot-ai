@@ -3,9 +3,9 @@ import { Search, Inbox, TrendingUp, TrendingDown } from "lucide-react";
 
 export function PageHeader({ title, description, action }: { title: string; description: string; action?: React.ReactNode }) {
   return (
-    <div className="mb-6 flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
-      <div><h1 className="text-2xl font-bold tracking-tight text-slate-900">{title}</h1><p className="mt-1 text-sm text-slate-500">{description}</p></div>
-      {action}
+    <div className="mb-5 flex flex-col justify-between gap-3 sm:mb-6 sm:flex-row sm:items-center sm:gap-4">
+      <div className="min-w-0"><h1 className="text-[1.65rem] font-extrabold leading-tight tracking-tight text-slate-900 sm:text-2xl">{title}</h1><p className="mt-1 text-sm leading-relaxed text-slate-500">{description}</p></div>
+      {action && <div className="[&>*]:w-full sm:[&>*]:w-auto">{action}</div>}
     </div>
   );
 }
@@ -16,11 +16,11 @@ const statusStyles: Record<LeadStatus, string> = {
   Cold: "bg-slate-100 text-slate-600 ring-slate-500/10",
 };
 export function StatusBadge({ status }: { status: LeadStatus }) {
-  return <span className={`inline-flex rounded-full px-2.5 py-1 text-xs font-bold ring-1 ring-inset ${statusStyles[status]}`}>{status}</span>;
+  return <span className={`inline-flex w-fit shrink-0 self-start rounded-full px-2.5 py-1 text-xs font-bold ring-1 ring-inset ${statusStyles[status]}`}>{status}</span>;
 }
 export function ScoreBadge({ score }: { score: number }) {
   const color = score >= 80 ? "text-emerald-700 bg-emerald-50" : score >= 60 ? "text-amber-700 bg-amber-50" : "text-slate-600 bg-slate-100";
-  return <span className={`inline-flex min-w-11 justify-center rounded-lg px-2 py-1 text-xs font-extrabold ${color}`}>{score}</span>;
+  return <span className={`inline-flex w-fit min-w-11 shrink-0 self-start justify-center rounded-lg px-2 py-1 text-xs font-extrabold ${color}`}>{score}</span>;
 }
 
 export function SearchInput(props: React.InputHTMLAttributes<HTMLInputElement>) {
@@ -32,7 +32,7 @@ export function EmptyState({ onClear }: { onClear?: () => void }) {
 }
 
 export function KpiCard({ title, value, note, icon, trend }: { title: string; value: string | number; note: string; icon: React.ReactNode; trend?: "up" | "down" }) {
-  return <div className="card p-5"><div className="flex items-start justify-between"><div className="rounded-xl bg-blue-50 p-2.5 text-blue-600">{icon}</div>{trend && <span className={`flex items-center gap-1 text-xs font-bold ${trend === "up" ? "text-emerald-600" : "text-rose-600"}`}>{trend === "up" ? <TrendingUp className="size-3.5" /> : <TrendingDown className="size-3.5" />}{note}</span>}</div><p className="mt-4 text-sm font-medium text-slate-500">{title}</p><p className="mt-1 text-2xl font-extrabold tracking-tight text-slate-900">{value}</p>{!trend && <p className="mt-1 text-xs text-slate-400">{note}</p>}</div>;
+  return <div className="card min-w-0 p-4 sm:p-5"><div className="flex items-start justify-between"><div className="rounded-xl bg-blue-50 p-2 text-blue-600 [&>svg]:size-5 sm:p-2.5 sm:[&>svg]:size-6">{icon}</div>{trend && <span className={`flex items-center gap-1 text-xs font-bold ${trend === "up" ? "text-emerald-600" : "text-rose-600"}`}>{trend === "up" ? <TrendingUp className="size-3.5" /> : <TrendingDown className="size-3.5" />}{note}</span>}</div><p className="mt-3 text-xs font-semibold leading-tight text-slate-500 sm:mt-4 sm:text-sm">{title}</p><p className="mt-1 break-words text-xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-2xl">{value}</p>{!trend && <p className="mt-1 line-clamp-2 text-[11px] leading-relaxed text-slate-400 sm:text-xs">{note}</p>}</div>;
 }
 
 export function ProgressBar({ value, color = "bg-blue-600" }: { value: number; color?: string }) {
